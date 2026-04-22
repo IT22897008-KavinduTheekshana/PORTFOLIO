@@ -41,20 +41,45 @@ const CONTACT_ITEMS = [
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Opens default mail client with pre-filled fields
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
-    );
-    window.location.href = `mailto:kavindutheekshana2000@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${body}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "54aac852-6215-4768-9575-79be5f7a8fa8",
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSent(true);
+        setForm({ name: '', email: '', subject: '', message: '' }); // Clear form
+        setTimeout(() => setSent(false), 4000);
+      } else {
+        console.error("Form submission failed:", result);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -181,8 +206,14 @@ export default function Contact() {
               />
             </div>
 
-            <button type="submit" className="btn-grad w-full text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2">
-              {sent ? (
+            <button 
+              type="submit" 
+              disabled={loading || sent}
+              className="btn-grad w-full text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {loading ? (
+                <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+              ) : sent ? (
                 <>
                   <CheckCircle2 size={16} /> Message Sent!
                 </>
