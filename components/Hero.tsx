@@ -11,22 +11,22 @@ const ROLES = [
 ];
 
 const TECH_CHIPS = [
-  { label: 'Python',   icon: '🐍', cls: 'float-a', pos: 'top-[8%]  left-[3%]' },
-  { label: 'React',    icon: '⚛️',  cls: 'float-b', pos: 'top-[18%] right-[2%]' },
-  { label: 'LLM/RAG',  icon: '🧠', cls: 'float-c', pos: 'bottom-[30%] left-[1%]' },
-  { label: 'Angular',  icon: '🔺', cls: 'float-d', pos: 'bottom-[18%] right-[4%]' },
-  { label: 'Node.js',  icon: '💚', cls: 'float-e', pos: 'top-[50%]  right-[0%]' },
+  { label: 'Python', icon: '🐍', cls: 'float-a', pos: 'top-[8%]  left-[3%]' },
+  { label: 'React', icon: '⚛️', cls: 'float-b', pos: 'top-[18%] right-[2%]' },
+  { label: 'LLM/RAG', icon: '🧠', cls: 'float-c', pos: 'bottom-[30%] left-[1%]' },
+  { label: 'Angular', icon: '🔺', cls: 'float-d', pos: 'bottom-[18%] right-[4%]' },
+  { label: 'Node.js', icon: '💚', cls: 'float-e', pos: 'top-[50%]  right-[0%]' },
 ];
 
 const STATS = [
-  { num: '5+',  label: 'Projects' },
+  { num: '5+', label: 'Projects' },
   { num: '8mo', label: 'Experience' },
   { num: '10+', label: 'Technologies' },
 ];
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [roleIdx,  setRoleIdx]  = useState(0);
+  const [roleIdx, setRoleIdx] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [typing, setTyping] = useState(true);
 
@@ -38,7 +38,7 @@ export default function Hero() {
     if (!ctx) return;
 
     const resize = () => {
-      canvas.width  = window.innerWidth;
+      canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
     resize();
@@ -59,7 +59,7 @@ export default function Hero() {
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
         ctx.beginPath();
@@ -73,7 +73,7 @@ export default function Hero() {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const d  = Math.sqrt(dx * dx + dy * dy);
+          const d = Math.sqrt(dx * dx + dy * dy);
           if (d < 110) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -181,7 +181,7 @@ export default function Hero() {
                 <Mail size={16} /> Get In Touch
               </a>
               <a
-                href="https://github.com/KavinduTheekshana"
+                href="https://github.com/IT22897008-KavinduTheekshana"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-ghost inline-flex items-center gap-2 text-slate-300 font-semibold px-4 py-3 rounded-xl"
