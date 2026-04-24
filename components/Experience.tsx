@@ -41,7 +41,7 @@ export default function Experience() {
                   </div>
                   <div className="flex items-center gap-2 bg-violet-600/10 border border-violet-600/20 rounded-full px-4 py-1.5">
                     <Calendar size={13} className="text-violet-400" />
-                    <span className="text-xs font-semibold text-violet-400">Aug 2024 – Present · 8 months</span>
+                    <span className="text-xs font-semibold text-violet-400">Aug 2025 – Present · 8 months</span>
                   </div>
                 </div>
 
