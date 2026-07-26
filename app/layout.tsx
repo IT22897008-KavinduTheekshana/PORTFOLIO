@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Kavindu Theekshana — Software Engineer",
   description:
     "Portfolio of Kavindu Theekshana, Associate Software Engineer & Full Stack Developer specializing in enterprise systems, workflow automation, and AI/ML integration.",
+  icons: [
+    { rel: "icon", url: "/images/logo.png" },
+  ],
 };
 
 export default function RootLayout({

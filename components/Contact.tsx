@@ -1,17 +1,16 @@
 export default function Contact() {
   return (
     <section id="contact" className="px-6 md:px-16 lg:px-28 py-28 border-t border-line">
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.6fr_1.4fr]">
+      <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-2 lg:items-start">
         <div className="space-y-6">
-          <p className="text-sm uppercase tracking-[0.32em] text-amber">05 · connect</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-amber">Contact</p>
           <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight text-ink">
             Let&apos;s build the
             <br />
             <span className="text-muted">next pipeline together.</span>
           </h2>
           <p className="max-w-xl text-lg leading-relaxed text-muted">
-            Open to full-time roles, freelance builds, and AI-integrated products.
-            Reach out directly — I reply quickly and keep every conversation practical.
+            Open to full-time roles, freelance builds, and AI-integrated products. Reach out directly — I reply quickly and keep every conversation practical.
           </p>
         </div>
 

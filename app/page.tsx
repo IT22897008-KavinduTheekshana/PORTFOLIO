@@ -8,7 +8,7 @@ import PipelineNav from "@/components/PipelineNav";
 
 export default function Home() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden pt-24">
       <PipelineNav />
       <Hero />
       <About />
